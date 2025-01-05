@@ -1,4 +1,4 @@
-import {Editor, MarkdownView, Plugin} from "obsidian";
+import {Editor, MarkdownView, Plugin, Notice} from "obsidian";
 
 export default class MyPlugin extends Plugin {
 
@@ -34,6 +34,14 @@ export default class MyPlugin extends Plugin {
         }
 
         if (isMergeCommandAvailable) {
+
+            const selectedText = editor.getSelection();
+            if ((/^---|^#/m).test(selectedText)) {
+
+                new Notice("Cannot merge lines in YAML front matter or headings.");
+                return false;
+
+            }
 
             this.removeNewlinesFromSelection(editor);
             return true;
