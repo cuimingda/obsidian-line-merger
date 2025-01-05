@@ -4,7 +4,7 @@
 	"version": "1.0.0",
 	"minAppVersion": "0.15.0",
 	"description": "An Obsidian plugin to merge multiple lines of text into a single line",
-	"author": "cuimingda",
+	"author": "Mobius Choi",
 	"authorUrl": "https://github.com/cuimingda",
 	"isDesktopOnly": true
 }
