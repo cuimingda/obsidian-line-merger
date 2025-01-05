@@ -1,6 +1,12 @@
 {
 	"name": "obsidian-line-merger",
 	"description": "An Obsidian plugin to merge multiple lines of text into a single line",
+	"main": "main.js",
+	"scripts": {
+		"dev": "node esbuild.config.mjs",
+		"build": "tsc -noEmit -skipLibCheck && node esbuild.config.mjs production",
+		"version": "node version-bump.mjs && git add manifest.json versions.json"
+	},
 	"keywords": [],
 	"author": "",
 	"license": "MIT",
