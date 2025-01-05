@@ -5,7 +5,7 @@ export default class MyPlugin extends Plugin {
     private isMergeCommandAvailable (editor: Editor, view: MarkdownView): boolean {
 
         const selectedText = editor.getSelection();
-        return selectedText.length > 0 && (/[\r\n]/).test(selectedText);
+        return selectedText.length > 0;
 
     }
 
