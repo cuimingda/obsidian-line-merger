@@ -20,6 +20,22 @@ export default class MyPlugin extends Plugin {
 
     }
 
+    private getFullLinesFromSelection (editor: Editor): string {
+
+        const startLine = editor.getCursor("from").line;
+        const endLine = editor.getCursor("to").line;
+        let expandedSelection = "";
+
+        for (let i = startLine; i <= endLine; i++) {
+
+            expandedSelection += editor.getLine(i) + "\n";
+
+        }
+
+        return expandedSelection;
+
+    }
+
     private mergeCallback = (checking: boolean, editor: Editor, view: MarkdownView): boolean => {
 
         const isMergeCommandAvailable = this.isMergeCommandAvailable(
@@ -35,8 +51,9 @@ export default class MyPlugin extends Plugin {
 
         if (isMergeCommandAvailable) {
 
-            const selectedText = editor.getSelection();
-            if ((/^---|^#/m).test(selectedText)) {
+            const expandedSelection = this.getFullLinesFromSelection(editor);
+
+            if ((/^---|^#/m).test(expandedSelection)) {
 
                 new Notice("Cannot merge lines in YAML front matter or headings.");
                 return false;
