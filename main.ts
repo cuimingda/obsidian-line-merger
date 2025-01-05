@@ -1,6 +1,6 @@
 import {Editor, MarkdownView, Plugin, Notice} from "obsidian";
 
-export default class MyPlugin extends Plugin {
+export default class LineMerger extends Plugin {
 
     private isMergeCommandAvailable (editor: Editor, view: MarkdownView): boolean {
 
@@ -81,7 +81,7 @@ export default class MyPlugin extends Plugin {
 
     }
 
-    onunload () {
+    async onunload () {
 
     }
 
