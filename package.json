@@ -1,5 +1,5 @@
 {
-	"name": "obsidian-line-merger",
+	"name": "@cuimingda/obsidian-line-merger",
 	"description": "An Obsidian plugin to merge multiple lines of text into a single line",
 	"main": "main.js",
 	"scripts": {
